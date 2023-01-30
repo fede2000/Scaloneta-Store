@@ -38,6 +38,7 @@ const Register = () => {
             <LoginInput name='name' type='text' placeholder='Name'></LoginInput>
             <LoginInput name='email' type='text' placeholder='Email'></LoginInput>
             <LoginInput name='password' type='password' placeholder='Password' />
+            <LoginInput name='password' type='password' placeholder='Confirm Password' />
             <p>O podes ingresar con</p>
             <RegisterButtonGoogle type='button' onClick={signInWithGoogle}>
             <img

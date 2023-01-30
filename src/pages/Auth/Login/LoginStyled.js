@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import { Form as FormikForm } from 'formik';
 import { AuthButtonGoogle, AuthContainer, AuthEmail, AuthForm, AuthImgContainer, AuthPassword, AuthSection } from "../AuthStyles";
 
 

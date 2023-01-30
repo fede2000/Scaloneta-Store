@@ -39,7 +39,7 @@ const Login = () => {
           <h1>Login</h1>
             <LoginInput name='email' type='text' placeholder='Email'></LoginInput>
             <LoginInput name='password' type='password' placeholder='Password' />
-            <Link to='/forgot-password'>
+            <Link to='/reset'>
               <LoginPassword>
                 ¿Olvidaste la contraseña? Reestablecela
               </LoginPassword>

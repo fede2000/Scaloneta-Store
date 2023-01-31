@@ -1,4 +1,6 @@
 import { initializeApp } from 'firebase/app';
+import { ToastContainer, toast } from 'react-toastify';
+
 import {
   firebaseConfig,
   actionCodeSettingsVerification,
@@ -63,8 +65,9 @@ export const createUser = (email, password, displayName) =>
       userCredential.user,
       actionCodeSettingsVerification
     ).then(() => {
-      alert(`Mensaje de verificación enviado al mail ${email}`);
+      toast.success(`Mensaje de verificación enviado al mail ${email}`);
       localStorage.setItem('username', displayName);
+      console.log(userCredential)
     })
   );
 
@@ -73,7 +76,7 @@ export const signInUser = (email, password) =>
 
 export const resetPassword = email =>
   sendPasswordResetEmail(auth, email, actionCodeSettingsForgotPassword).then(
-    () => alert(`Mail de recupero de contraseña enviado a ${email}`)
+    () => toast.success(`Mail de recupero de contraseña enviado a ${email}`)
   );
 
 // Ordenes

@@ -33,11 +33,11 @@ export const AuthForm = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 2rem;
   gap: 20px;
   color: #000;
-  height: 100%;
+  height: auto;
   width: 450px;
   margin: 0 auto;
   padding: 2rem 2rem 0rem 2rem;

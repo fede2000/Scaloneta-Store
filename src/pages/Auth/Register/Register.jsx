@@ -2,43 +2,52 @@ import { Formik } from 'formik'
 import React from 'react'
 import { registerInitialValues, registerValidationSchema } from '../../../formik';
 import {
-  signInUser,
-  signInWithGoogle,
-  createUserProfileDocument,
+  createUser,
+  signInWithGoogle
 } from '../../../firebase/firebase-utils';
 
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RegisterButtonGoogle, RegisterContainer, RegisterEmail, RegisterForm, RegisterImgContainer, RegisterPassword, RegisterSection } from './RegisterStyles';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import Loader from '../../../components/Loader/Loader';
+
+
 
 const Register = () => {
+const [isLoading, setIsLoading] = useState(false)
+const navigate = useNavigate()
   return (
+    <>
+    {isLoading && <Loader/>}
     <RegisterSection>
       
       <RegisterContainer>
 
         <Formik initialValues={registerInitialValues}
         validationSchema={registerValidationSchema}
-        onSubmit={async values => {
-          try{
-            const { user } = await signInUser(values.email, values.password);
-            createUserProfileDocument(user);
-          } catch( error ) {
-            if (error.code === 'auth/wrong-password'){
-              alert("Contraseña Incorrecta")
-            }
-            if (error.code === 'auth/user-not-found'){
-              alert("Usuario no encontrado")
+        onSubmit={async (values,actions) => {
+          setIsLoading(true);
+          try {
+            await createUser(values.email, values.password, values.name);
+            setIsLoading(false);
+            navigate("/login");
+          } catch (error) {
+            if (error.code === 'auth/email-already-in-use') {
+              toast.error("Mail en uso")
+              setIsLoading(false);
             }
           }
+          actions.resetForm();
         }}>
           <RegisterForm>
           <h1>Register</h1>
             <LoginInput name='name' type='text' placeholder='Name'></LoginInput>
             <LoginInput name='email' type='text' placeholder='Email'></LoginInput>
             <LoginInput name='password' type='password' placeholder='Password' />
-            <LoginInput name='password' type='password' placeholder='Confirm Password' />
             <p>O podes ingresar con</p>
             <RegisterButtonGoogle type='button' onClick={signInWithGoogle}>
             <img
@@ -52,7 +61,7 @@ const Register = () => {
                 ¿Ya tenes cuenta? Inicia Sesión
               </RegisterEmail>
             </Link>
-            <Submit></Submit>
+            <Submit>Registrate</Submit>
           </RegisterForm>
         </Formik>
         <RegisterImgContainer>
@@ -60,6 +69,8 @@ const Register = () => {
         </RegisterImgContainer>
       </RegisterContainer>
     </RegisterSection>
+    <ToastContainer></ToastContainer>
+    </>
   )
 }
 

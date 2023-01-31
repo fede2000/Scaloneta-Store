@@ -7,13 +7,15 @@ import {
   signInWithGoogle,
   createUserProfileDocument,
 } from '../../../firebase/firebase-utils';
-
+import { ToastContainer, toast } from 'react-toastify';
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
 import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
+    <>
+    
     <LoginSection>
       
       <LoginContainer>
@@ -57,11 +59,13 @@ const Login = () => {
                 ¿No tenes cuenta? Create una
               </LoginEmail>
             </Link>
-            <Submit></Submit>
+            <Submit>Iniciar Sesión</Submit>
           </Form>
         </Formik>
       </LoginContainer>
     </LoginSection>
+    <ToastContainer></ToastContainer>
+    </>
   )
 }
 

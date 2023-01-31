@@ -5,19 +5,23 @@ import { forgotPasswordInitialValues, forgotPasswordValidationSchema } from '../
 import {
     resetPassword
 } from '../../../firebase/firebase-utils';
-
+import { ToastContainer, toast } from 'react-toastify';
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
 import { Link } from 'react-router-dom';
 import { ResetContainer, ResetDiv, ResetEmail, ResetForm, ResetImgContainer, ResetPassword, ResetSection } from './ResetStyles';
+import Loader from '../../../components/Loader/Loader';
 
 const Login = () => {
   return (
+    <>
+    <ToastContainer></ToastContainer>
+
     <ResetSection>
       
       <ResetContainer>
         <ResetImgContainer>
-          <img src="images/login.svg" alt="" />
+          <img src="images/reset.svg" alt="" />
         </ResetImgContainer>
         <Formik initialValues={forgotPasswordInitialValues}
         validationSchema={forgotPasswordValidationSchema}
@@ -33,16 +37,16 @@ const Login = () => {
                         ¿Ya te acordaste la contraseña? Volve
                     </ResetEmail>
                 </Link>
-            <Submit></Submit>
+            <Submit>Restablecer Contraseña</Submit>
             <ResetDiv>
                 <Link to='/login'>
                     <ResetEmail>
-                        Login
+                        - Login
                     </ResetEmail>
                 </Link>
                 <Link to='/register'>
                     <ResetEmail>
-                        Register
+                        - Register
                     </ResetEmail>
                 </Link>
             </ResetDiv>
@@ -51,6 +55,8 @@ const Login = () => {
         </Formik>
       </ResetContainer>
     </ResetSection>
+
+    </>
   )
 }
 

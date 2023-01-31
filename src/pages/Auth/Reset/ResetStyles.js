@@ -15,7 +15,8 @@ export const ResetImgContainer = styled(AuthImgContainer)`
 
 
 export const ResetForm = styled(AuthForm)`
-
+    height: auto;
+    text-align: center;
 `;
 
 export const ResetPassword = styled(AuthPassword)`
@@ -31,4 +32,6 @@ export const ResetDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 0 2rem 2rem;
 `

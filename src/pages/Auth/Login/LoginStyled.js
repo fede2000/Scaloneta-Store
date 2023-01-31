@@ -11,12 +11,12 @@ export const LoginContainer = styled(AuthContainer)`
 `
 
 export const LoginImgContainer = styled(AuthImgContainer)`
-
+    height: 540px;
 `
 
 
 export const Form = styled(AuthForm)`
-
+    height: auto;
 `;
 
 export const LoginPassword = styled(AuthPassword)`

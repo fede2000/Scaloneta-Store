@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, Contact, Login, Reset, Register} from "./pages/index"
 //  Components
 import { Header, Footer} from "./components"
-import { GlobalStyles } from "./styles/GlobalStyles";
+
 
 import { onAuthStateChanged } from "firebase/auth"
 import { auth, createUserProfileDocument } from "./firebase/firebase-utils";
@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux"
 import * as userActions from "./redux/user/user-actions"
 import React, { useEffect } from 'react';
 import { ToastContainer } from "react-toastify";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
 function onAuthStateChange (callback, action){
   onAuthStateChanged(auth, async userAuth => {
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <>
-    <GlobalStyles></GlobalStyles>
+      <GlobalStyles></GlobalStyles>
       <BrowserRouter>
       <ToastContainer
         position="top-right"

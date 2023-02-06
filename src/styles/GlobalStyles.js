@@ -23,5 +23,4 @@ export const GlobalStyles = createGlobalStyle`
     --grey: #2d3640;
     --dark-blue: #0077b6;
  }
-
 `;

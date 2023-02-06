@@ -1,15 +1,3 @@
-// export const firebaseConfig = {
-//   apiKey: 'AIzaSyDX1NJWxLpUcvNn-wsM6_NlFHipzB9A-LM',
-//   authDomain: 'nucba-zappi-1917.firebaseapp.com',
-//   projectId: 'nucba-zappi-1917',
-//   storageBucket: 'nucba-zappi-1917.appspot.com',
-//   messagingSenderId: '918103198165',
-//   appId: '1:918103198165:web:1a6780f65253735c67555c',
-// };
-
-
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAr_ltK5V69WZkxN0wQN7GPtB3LSNVMPpk",
@@ -21,8 +9,6 @@ export const firebaseConfig = {
   measurementId: "G-CE4V81Q2GZ"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 export const actionCodeSettingsVerification = {
   url:

@@ -1,22 +1,35 @@
 import { Formik } from 'formik'
-import React from 'react'
+import React, { useState }  from 'react'
 
 import { forgotPasswordInitialValues, forgotPasswordValidationSchema } from '../../../formik';
-import {
-    resetPassword
-} from '../../../firebase/firebase-utils';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
 import { Link } from 'react-router-dom';
 import { ResetContainer, ResetDiv, ResetEmail, ResetForm, ResetImgContainer, ResetPassword, ResetSection } from './ResetStyles';
 import Loader from '../../../components/Loader/Loader';
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from '../../../firebase/firebase-utils';
 
-const Login = () => {
+const Reset = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const resetPassword = (email) => {
+    setIsLoading(true);
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        setIsLoading(false);
+        toast.success("Verifique su correo electrónico para el cambio de contraseña.");
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        toast.error("usuario no encontrado");
+      });
+  };
   return (
     <>
-    <ToastContainer></ToastContainer>
-
+    {isLoading && <Loader />}
     <ResetSection>
       
       <ResetContainer>
@@ -26,7 +39,7 @@ const Login = () => {
         <Formik initialValues={forgotPasswordInitialValues}
         validationSchema={forgotPasswordValidationSchema}
         onSubmit={async (values, action) => {
-            await resetPassword(values.email);
+            resetPassword(values.email);
             action.resetForm();
         }}>
           <ResetForm>
@@ -60,4 +73,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Reset

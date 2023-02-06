@@ -8,7 +8,7 @@ export const LoaderWrapper = styled.div`
     z-index: 9;
 `
 
-export const Loader = styled.div`
+export const LoaderDiv = styled.div`
     position: fixed;
     left: 50%;
     top: 50%;

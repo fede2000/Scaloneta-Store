@@ -9,20 +9,18 @@ import {
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
 import { Link, useNavigate } from 'react-router-dom';
-import { RegisterButtonGoogle, RegisterContainer, RegisterEmail, RegisterForm, RegisterImgContainer, RegisterPassword, RegisterSection } from './RegisterStyles';
+import { RegisterButtonGoogle, RegisterContainer, RegisterEmail, RegisterForm, RegisterImgContainer, RegisterSection } from './RegisterStyles';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react';
-import Loader from '../../../components/Loader/Loader';
+
 
 
 
 const Register = () => {
-const [isLoading, setIsLoading] = useState(false)
+
 const navigate = useNavigate()
   return (
     <>
-    {isLoading && <Loader/>}
     <RegisterSection>
       
       <RegisterContainer>
@@ -30,15 +28,16 @@ const navigate = useNavigate()
         <Formik initialValues={registerInitialValues}
         validationSchema={registerValidationSchema}
         onSubmit={async (values,actions) => {
-          setIsLoading(true);
+          
           try {
             await createUser(values.email, values.password, values.name);
-            setIsLoading(false);
+            
             navigate("/login");
           } catch (error) {
             if (error.code === 'auth/email-already-in-use') {
               toast.error("Mail en uso")
-              setIsLoading(false);
+              alert('Mail en uso');
+              
             }
           }
           actions.resetForm();

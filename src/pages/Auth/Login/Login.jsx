@@ -1,23 +1,49 @@
 import { Formik } from 'formik'
-import React from 'react'
+import React, { useState }  from 'react'
 import { Form, LoginButtonGoogle, LoginContainer, LoginEmail, LoginImgContainer, LoginPassword, LoginSection } from './LoginStyled'
 import { loginInitialValues, loginValidationSchema } from '../../../formik';
 import {
-  signInUser,
-  signInWithGoogle,
+  signInUser, auth,
   createUserProfileDocument,
 } from '../../../firebase/firebase-utils';
-import { ToastContainer, toast } from 'react-toastify';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { toast } from 'react-toastify';
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
+import Loader from '../../../components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import * as userActions from '../../../redux/user/user-actions';
+// import { selectPreviousURL } from "../../redux/slice/cartSlice";
 
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const redirectUser = () => {
+    navigate("/");
+  };
+  const dispatch = useDispatch();
+
+    // Login with Goooglr
+    const provider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          dispatch(userActions.toggleIsLoggedIn())
+          toast.success("Login Successfully");
+          redirectUser();
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        });
+    };
   return (
     <>
-    
+    {isLoading && <Loader />}
     <LoginSection>
-      
       <LoginContainer>
         <LoginImgContainer>
           <img src="images/login.svg" alt="" />
@@ -25,15 +51,22 @@ const Login = () => {
         <Formik initialValues={loginInitialValues}
         validationSchema={loginValidationSchema}
         onSubmit={async values => {
+          setIsLoading(true);
           try{
             const { user } = await signInUser(values.email, values.password);
             createUserProfileDocument(user);
+            dispatch(userActions.toggleIsLoggedIn())
+            setIsLoading(false);
+            redirectUser();
+            toast.success("Iniciaste Sesión");
           } catch( error ) {
             if (error.code === 'auth/wrong-password'){
-              alert("Contraseña Incorrecta")
+              setIsLoading(false);
+              toast.error("Contraseña incorrecta");
             }
             if (error.code === 'auth/user-not-found'){
-              alert("Usuario no encontrado")
+              setIsLoading(false);
+              toast.error("usuario no encontrado");
             }
           }
         }}>
@@ -64,7 +97,6 @@ const Login = () => {
         </Formik>
       </LoginContainer>
     </LoginSection>
-    <ToastContainer></ToastContainer>
     </>
   )
 }

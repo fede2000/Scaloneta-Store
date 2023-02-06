@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 
 import {
   firebaseConfig,
@@ -9,11 +9,10 @@ import {
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  GoogleAuthProvider,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signInWithPopup,
+  signInWithPopup,GoogleAuthProvider
 } from 'firebase/auth';
 import {
   doc,
@@ -144,6 +143,7 @@ export const getOrders = async (userId, currentOrdersInRedux, cb, action) => {
 
   return orders;
 };
+
 
 const provider = new GoogleAuthProvider();
 

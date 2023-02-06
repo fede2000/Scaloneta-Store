@@ -4,12 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MenuProvider } from './Context/Context';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <MenuProvider>    
-    <App />
-  </MenuProvider>
+  <>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+
+        <MenuProvider>    
+          <App />
+        </MenuProvider>
+  
+      </PersistGate>
+    </Provider>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

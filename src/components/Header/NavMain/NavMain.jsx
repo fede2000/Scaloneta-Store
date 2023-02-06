@@ -8,7 +8,7 @@ import { MenuContext } from '../../../Context/Context'
 import {
     REMOVE_ACTIVE_USER,
     SET_ACTIVE_USER,
-  } from "../../../redux/slice/authslice";
+  } from "../../../redux/Slice/authslice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";

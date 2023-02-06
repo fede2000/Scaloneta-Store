@@ -9,7 +9,7 @@ import recommendedReducer from './recommended/recommended-reducer';
 import cartReducer from './cart/cart-reducer';
 import userReducer from './user/user-reducer';
 import ordersReducer from './orders/orders-reducer';
-import authReducer from "./slice/authslice";
+import authReducer from "./Slice/authslice";
 
 const persistConfig = {
   key: 'root',

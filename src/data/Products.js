@@ -33,11 +33,11 @@ export const Products = [
   },
   {
     id: 5,
-    name: 'Picantovich',
-    imageURL: 'https://res.cloudinary.com/dcatzxqqf/image/upload/v1656648455/coding/NucbaZappi/Productos/picantovich_fhy8us.png',
-    desc: 'Pica 2 veces',
-    price: 750,
-    category: 'Pizzas',
+    name: '¡La del Dibu en la Final"',
+    imageURL: 'https://github.com/fede2000/Scaloneta-Store/blob/main/public/images/productos/camiseta-arquero-verde.jpg?raw=true',
+    desc: 'Con un diseño que no querrás dejar de tener con vos, la Camiseta adidas Afa Gk está pensada para los hinchas y su color verde resalta el cuidado del medioambiente. Por eso, está hecha con un 100% de contenido reciclado y gráficos que te llenan de orgullo al llevarla puesta. Además, gracias a AEROREADY, la tecnología de absorción de sudor de adidas, estarás cómodo y fresco en todo el tiempo que la lleves puesta. El escudo de Argentina en el frente, es el cierre de tu amor y pasión.',
+    price: 188,
+    category: 'Indumentaria Masculina',
   },
   {
     id: 6,
@@ -49,8 +49,8 @@ export const Products = [
   },
   {
     id: 7,
-    name: 'Leo Messi',
-    imageURL: 'https://res.cloudinary.com/dcatzxqqf/image/upload/v1656648455/coding/NucbaZappi/Productos/messi_m2l6zt.png',
+    name: 'Camiseta Titular AFA Mujer',
+    imageURL: 'https://github.com/fede2000/Scaloneta-Store/blob/main/public/images/productos/camiseta-seleccion-mujer.jpeg?raw=true',
     desc: '¡De pie señores!',
     price: 10,
     category: 'Pizzas',

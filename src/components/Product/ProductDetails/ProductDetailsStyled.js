@@ -86,6 +86,12 @@ export const ContentDetails = styled.div`
     & > * {
         margin-bottom: 1rem;
       }
+
+      @media (max-width:600px){
+            width: 90%;
+            
+            
+    }
 `
 
 export const ProductName = styled.h3`

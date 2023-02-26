@@ -1,15 +1,21 @@
-import { SHIPPING_COST } from '../../Utils';
+
+import { SHIPPING_COST } from '../../Utils/index';
 import {
   ADD_TO_CART,
   CLEAR_CART,
   REMOVE_FROM_CART,
   TOGGLE_HIDDEN_CART,
+  DECREMENT_TO_CART
+
 } from './cart-actions';
 
 import {
   addItemToCart,
   resetShippingCost,
   removeItemFromCart,
+  decrementItemFromCart,
+
+  
 } from './cart-utils';
 
 const INITIAL_STATE = {
@@ -25,6 +31,12 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
         shippingCost: SHIPPING_COST,
+      };
+    case DECREMENT_TO_CART:
+      return {
+        ...state,
+        cartItems: decrementItemFromCart(state.cartItems, action.payload),
+        shippingCost: resetShippingCost(state.cartItems, SHIPPING_COST),
       };
     case REMOVE_FROM_CART:
       return {

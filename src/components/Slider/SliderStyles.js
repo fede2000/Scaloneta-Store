@@ -6,13 +6,45 @@ export const SliderSection = styled.section`
     position: relative;
     overflow: hidden;
     background-color: #333;
+    @media (max-width:900px){
+    height: 70vh;
+    }
+    @media (max-width:700px){
+          height: 60vh;
+    }
+    @media (max-width:600px){
+          height: 50vh;
+    }
+    @media (max-width:500px){
+          height: 40vh;
+    }
+    @media (max-width:400px){
+          height: 30vh;
+    }
 `
 
 export const Slide = styled.div`
 
+
     img{
         height: 100vh;
         width: 100vw;
+        background-size: cover;
+        @media (max-width:900px){
+          height: 70vh;
+        }
+        @media (max-width:700px){
+          height: 60vh;
+        }
+        @media (max-width:600px){
+          height: 50vh;
+        }
+        @media (max-width:500px){
+              height: 40vh;
+        }
+        @media (max-width:400px){
+              height: 30vh;
+        }
     }
     .slide{
         position: absolute;
@@ -38,6 +70,7 @@ export const Content = styled.div`
   left: 50%;
   opacity: 1;
   width: 50%;
+  gap: 20px;
   padding: 3rem;
   display: flex;
   justify-self: center;
@@ -65,13 +98,113 @@ export const Content = styled.div`
     background: #fff;
     width: 50%;
     }
+    @media (max-width:900px){
+          
+          top: 22rem;
+          @keyframes slide-up {
+          0% {
+            visibility: visible;
+            top: 22rem;
+          }
+          100% {
+            visibility: visible;
+            top: 15rem;
+          }
+        }
+        @media (max-width:700px){
+          top: 15rem;
+          @keyframes slide-up {
+          0% {
+            visibility: visible;
+            top: 15rem;
+          }
+          100% {
+            visibility: visible;
+            top: 10rem;
+          }
+        }
+        }
+        @media (max-width:600px){
+          top: 13rem;
+          padding: 2rem;
+          @keyframes slide-up {
+          0% {
+            visibility: visible;
+            top: 13rem;
+          }
+          100% {
+            visibility: visible;
+            top: 8rem;
+          }
+        }
+        }
+        @media (max-width:500px){
+          top: 10rem;
+          @keyframes slide-up {
+          0% {
+            visibility: visible;
+            top: 10rem;
+          }
+          100% {
+            visibility: visible;
+            top: 5rem;
+          }
+        }
+        }
+        @media (max-width:400px){
+          top: 5rem;
+          padding: 1rem;
+          @keyframes slide-up {
+          0% {
+            visibility: visible;
+            top: 5rem;
+          }
+          100% {
+            visibility: visible;
+            top: 3rem;
+          }
+        }
+        }
+}
 `
 
 export const Heading = styled.h2`
     font-size: 4.5rem;
+    @media (max-width:900px){
+          font-size: 3.2rem;
+        }
+        @media (max-width:700px){
+          font-size: 3rem;
+        }
+        @media (max-width:600px){
+          font-size: 2rem;
+        }
+        @media (max-width:500px){
+          font-size: 1.4rem;
+        }
+        @media (max-width:400px){
+          font-size: 1rem;
+        }
+
+
 `
 
 export const Description = styled.p`
+    @media (max-width:900px){
+          font-size: 1rem;
+        }
+        @media (max-width:700px){
+          font-size: 1rem;
+        }
+        @media (max-width:600px){
+          font-size: 1rem;
+        }
+        @media (max-width:500px){
+          font-size: .9rem;
+        }
+        @media (max-width:400px){
+          font-size: .8rem;
+        }
 
 `
 
@@ -99,19 +232,37 @@ export const Arrow = styled.span`
 `
 
 export const ButtonSlide = styled.span`
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 6px 8px;
-    margin: 0 5px 0 0;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-    background-color: #007bff;
-    color: #fff;
+  padding: 0.8rem 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #75aadb;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  width: 200px;
+  margin: 1rem auto;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  :hover{
+    padding: 1rem 1.7rem;
+  }
+  @media (max-width:900px){
+          font-size: 1rem;
+        }
+        @media (max-width:700px){
+          font-size: .7rem,;
+        }
+        @media (max-width:600px){
+          font-size: .7rem;
+        }
+        @media (max-width:500px){
+          font-size: .7rem;
+          padding: .6rem 1rem;
+        }
 `
 
 

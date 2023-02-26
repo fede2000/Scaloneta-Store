@@ -17,4 +17,25 @@ export const HeaderLogo = styled.div`
         color: #75aadb;
         color: ${(props) => props.color};
     }
+
+    @media (max-width: 1024px) {
+        h2{
+            font-size: 2rem;
+        }
+
+    }
+    @media (max-width: 800px) {
+        h2{
+            font-size: 1.5rem;
+        }
+
+    }
+    @media (max-width: 350px) {
+        h2{
+            font-size: 1.2rem;
+        }
+
+    }
+
+
 `

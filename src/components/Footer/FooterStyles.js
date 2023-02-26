@@ -9,12 +9,13 @@ export const FooterSection = styled.footer`
 
 export const FooterContainer = styled.div`
     display: flex;
-    justify-content: space-around;
-    max-width: 1300px;
+    justify-content: space-between;
+    max-width: 1200px;
     flex-wrap: wrap;
     width: 100%;
     gap: 70px;
-    padding: 30px;
+    margin: 0 auto;
+    padding: 1rem;
 
     @media (max-width: 992px) {
     gap: 40px;

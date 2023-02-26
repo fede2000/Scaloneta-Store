@@ -4,8 +4,13 @@ export const NavContainer = styled.nav`
     display: flex;
     height: 100%;
     width: 100%;
+    margin-right: 20px;
     @media (max-width: 992px){
         margin-top: 28px;
+
+    }
+    @media (max-width: 520px){
+        margin-right: 10px;
 
     }
 `
@@ -25,6 +30,7 @@ export const NavUl = styled.ul`
         
         width: 80%;
         margin: 0 auto;
+        
     
     }
 `
@@ -36,6 +42,7 @@ export const LogoMobile = styled.li`
         justify-content: space-between;
         align-items: center;
         width: 100%;
+
     }
 `
 
@@ -48,10 +55,15 @@ export const NavItem = styled.li`
         &:hover{
                 color: #75AADB
         }
-        font-size: 1.5rem;
+        font-size: 1rem;
         text-decoration: none;
         color: #fff;
-        border-bottom:${props => props.IsActive ? '2px solid white' : ''}
+        border-bottom:${props => props.IsActive ? '2px solid white' : ''};
+        
+        @media (max-width: 1024px) {
+            font-size: 1rem;
+
+    }
     }   
 
     @media (max-width: 992px){
@@ -61,7 +73,7 @@ export const NavItem = styled.li`
         width: 100%;
 
         a{
-            font-size: 2.3rem;
+            font-size: 1.3rem;
         }
     }
 `

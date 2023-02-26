@@ -6,7 +6,7 @@ import { Arrow, ButtonSlide, Content, Description, Heading, Slide, SliderSection
 const Slider = () => {
 const [currentSlide, setCurrentSlide] = useState(0);
 const slideLength = sliderData.length;
-//   console.log(slideLength);
+
 
 const autoScroll = true;
 let slideInterval;
@@ -37,14 +37,15 @@ useEffect(() => {
 
 return (
   <SliderSection>
-    <Arrow left onClick={prevSlide}>{console.log("button left")}<AiOutlineArrowLeft className="left"></AiOutlineArrowLeft></Arrow>
-    <Arrow right onClick={nextSlide}>{console.log("button right")}<AiOutlineArrowRight className="right"></AiOutlineArrowRight></Arrow>
+    {/* <Arrow left onClick={prevSlide}><AiOutlineArrowLeft className="left"></AiOutlineArrowLeft></Arrow> */}
+    {/* <Arrow right onClick={nextSlide}><AiOutlineArrowRight className="right"></AiOutlineArrowRight></Arrow> */}
     {sliderData.map((slide, index) => {
       const { image, heading, desc } = slide;
       return (
         <Slide
           key={index}
           className={index === currentSlide ? "slide current" : "slide"}
+  
         >
           {index === currentSlide && (
             <>
@@ -53,7 +54,7 @@ return (
                     <Heading>{heading}</Heading>
                     <Description>{desc}</Description>
                     <hr></hr>
-                    <a href="#product"><ButtonSlide>Comprar ahora</ButtonSlide></a>
+                    <a href="#product"><ButtonSlide>Comprar</ButtonSlide></a>
                 </Content>
             </>
           )}

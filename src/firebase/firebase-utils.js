@@ -80,12 +80,14 @@ export const resetPassword = email =>
 
 // Ordenes
 export const createOrderDocument = async order => {
+  // si no hay orden retorna
   if (!order) return;
 
   const orderRef = doc(firestore, `orders/${order.orderId}`);
   const snapShot = await getDoc(orderRef);
 
   if (!snapShot.exists()) {
+    // se guarda la fecha cuando se creo
     const createdAt = new Date();
 
     try {

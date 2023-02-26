@@ -5,8 +5,7 @@ export const MenuMobileContainer = styled.div`
   height: 50%;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
-
+  gap: 20px;
 
   @media (max-width: 992px) {
     display: flex;

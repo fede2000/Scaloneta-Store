@@ -9,7 +9,7 @@ import recommendedReducer from './recommended/recommended-reducer';
 import cartReducer from './cart/cart-reducer';
 import userReducer from './user/user-reducer';
 import ordersReducer from './orders/orders-reducer';
-import authReducer from "./Slice/authslice";
+import filterReducer from './filter/filter-reducers';
 
 const persistConfig = {
   key: 'root',
@@ -18,7 +18,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  auth: authReducer,
   // Agregar reducers
   products: productsReducer,
   categories: categoriesReducer,
@@ -26,6 +25,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   user: userReducer,
   orders: ordersReducer,
+  filter: filterReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

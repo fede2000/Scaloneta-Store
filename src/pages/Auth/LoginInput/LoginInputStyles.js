@@ -3,10 +3,14 @@ import styled from 'styled-components';
 export const InputContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+
 `;
 
 export const LoginInputStyled = styled.input`
-  width: 350px;
+  width: 90%;
+  margin: 0 auto;
   padding: 1.5rem 2rem;
   color: white;
   background-color: #75AADB;
@@ -24,6 +28,14 @@ export const LoginInputStyled = styled.input`
   :-webkit-autofill:hover,
   :-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px var(--gray-bg) inset;
+  }
+
+  @media (max-width: 1025px){
+
+  }
+
+  @media (max-width: 800px){
+  padding: .8rem 1rem;
   }
 `;
 

@@ -5,7 +5,7 @@ export const sliderData = [
     desc: "Up to 30% off on all onsale proucts.",
   },
   {
-    image: "images/slider/slider-2.jpeg",
+    image: "images/slider/slider-2.png",
     heading: "Indumentaria Femenina",
     desc: "Up to 30% off on all onsale proucts.",
   },

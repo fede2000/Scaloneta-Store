@@ -11,15 +11,7 @@ import MenuMobile from './MenuMobile/MenuMobile'
 const Header = () => {
   const context = useContext(MenuContext)
 
-  // const [showMenu, setShowMenu] = useState(false)
 
-  // const toggleMenu = () => {
-  //   setShowMenu(!showMenu)
-  // }
-
-  // const hideMenu = () => {
-  //   setShowMenu(false)
-  // }
   return (
     <>
       <HeaderSection>
@@ -31,7 +23,6 @@ const Header = () => {
             <NavMenu></NavMenu>
           </HeaderNavContainer>
           <MenuMobile></MenuMobile>
-           
         </HeaderContainer>
 
       </HeaderSection>

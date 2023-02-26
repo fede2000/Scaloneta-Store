@@ -8,19 +8,26 @@ export const LoginSection = styled(AuthSection)`
 `
 
 export const LoginContainer = styled(AuthContainer)`
+
 `
 
 export const LoginImgContainer = styled(AuthImgContainer)`
-    height: 540px;
 `
 
 
 export const Form = styled(AuthForm)`
-    height: auto;
+p{
+    @media (max-width: 800px){
+    padding: 0;
+    margin: 0;
+    font-size: .8rem;
+    
+    }
+}
 `;
 
 export const LoginPassword = styled(AuthPassword)`
-
+    text-align: center;
 `;
 
 export const LoginButtonGoogle= styled(AuthButtonGoogle)`

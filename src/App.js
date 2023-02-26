@@ -13,6 +13,12 @@ import * as userActions from "./redux/user/user-actions"
 import React, { useEffect } from 'react';
 import { ToastContainer } from "react-toastify";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import ProductDetails from "./components/Product/ProductDetails/ProductDetails";
+import Cart from "./pages/Cart/Cart";
+import Checkout from "./pages/checkout/Checkout";
+import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
+import MyOrders from "./pages/MyOrders/MyOrders";
+import OrderDetails from "./pages/OrderDetails/OrderDetails";
 
 function onAuthStateChange (callback, action){
   onAuthStateChanged(auth, async userAuth => {
@@ -58,6 +64,12 @@ function App() {
             <Route path="/login" element={ <Login/> }/>
             <Route path="/register" element={ <Register/> }/>
             <Route path="/reset" element={ <Reset/> }/>
+            <Route path="/product-details/:id" element={<ProductDetails />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout-success" element={<CheckoutSuccess />} />
+            <Route path='/my-orders' element={<MyOrders />} />
+            <Route path='/order-details/:orderId' element={<OrderDetails />} />
           </Routes>
    
 

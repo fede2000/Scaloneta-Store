@@ -17,4 +17,21 @@ export const MenuProvider = ({children}) => {
             {children}
         </MenuContext.Provider>
     )}
+export const CategoryContext = createContext()
+
+export const CategoryProvider = ({children}) => {
+    const [isOpenCat, setIsOpenCat] = useState(false)
+
+    const handleOpen = () => {
+        setIsOpenCat(!isOpenCat)
+    }
+
+    return(
+        <CategoryContext.Provider value={{
+            isCategoryOpen: isOpenCat,
+            toggleCategory: handleOpen,
+        }}>
+            {children}
+        </CategoryContext.Provider>
+    )}
 

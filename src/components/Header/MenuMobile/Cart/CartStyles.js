@@ -10,7 +10,7 @@ export const CartContainer = styled.span`
       display: flex;
       color: #fff;
       position: relative;
-      font-size: 1.5rem;
+      font-size: 1rem;
       text-decoration: none;
       justify-content: center;
       align-items: center;
@@ -24,9 +24,21 @@ export const CartContainer = styled.span`
       p {
         position: absolute;
         top: -10px;
-        right: -1rem;
+        right: -10px;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: .8rem;
+        @media (max-width: 800px) {
+          font-size: .7rem;
+          top: -8px;
+          right: -.8rem;
+      }
+      }
+
+      .icon{
+        font-size: 22px;
+        @media (max-width: 1024px) {
+            font-size: 18px
+      }
       }
     }
     @media (max-width: 992px){
@@ -40,4 +52,13 @@ export const CartContainer = styled.span`
           }
         }
     }
+
+      @media (max-width: 800px) {
+          a{
+              font-size: .9rem;
+          }
+          .icon{
+            font-size: 25px;
+          }
+      }
 `

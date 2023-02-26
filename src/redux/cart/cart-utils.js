@@ -1,3 +1,4 @@
+
 export const addItemToCart = (cartItems, product) => {
   const productInCart = cartItems.find(item => item.id === product.id);
 
@@ -12,7 +13,7 @@ export const addItemToCart = (cartItems, product) => {
   return [...cartItems, { ...product, quantity: 1 }];
 };
 
-export const removeItemFromCart = (cartItems, id) => {
+export const decrementItemFromCart = (cartItems, id) => {
   const productToRemove = cartItems.find(item => item.id === id);
 
   if (productToRemove.quantity > 1) {
@@ -25,6 +26,10 @@ export const removeItemFromCart = (cartItems, id) => {
 
   return cartItems.filter(item => item.id !== productToRemove.id);
 };
+export const removeItemFromCart = (cartItems, id) => {
+  const productToRemove = cartItems.find(item => item.id === id);
+  return cartItems.filter(item => item.id !== productToRemove.id);
+};
 
 export const resetShippingCost = (cartItems, shippingCost) => {
   if (cartItems.length === 1 && cartItems[0].quantity === 1) {
@@ -33,3 +38,4 @@ export const resetShippingCost = (cartItems, shippingCost) => {
 
   return shippingCost;
 };
+

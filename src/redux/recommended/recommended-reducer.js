@@ -1,4 +1,4 @@
-import { products } from '../../data';
+import { Products } from '../../data';
 
 const INITIAL_STATE = {
   recommended: Array(4)
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
       let newRecommended;
       do {
         newRecommended = {
-          ...products[Math.floor(Math.random() * products.length)],
+          ...Products[Math.floor(Math.random() * Products.length)],
         };
       } while (IDs.includes(newRecommended.id));
 

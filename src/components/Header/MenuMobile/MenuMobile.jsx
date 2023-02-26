@@ -11,7 +11,7 @@ const MenuMobile = () => {
     <MenuMobileContainer>
       <Cart></Cart>
       <Menu>
-        <GiHamburgerMenu size={35} color="#fff" onClick={context.toggleMenu}></GiHamburgerMenu>
+        <GiHamburgerMenu size={28} color="#fff" onClick={context.toggleMenu}></GiHamburgerMenu>
       </Menu>
 
 

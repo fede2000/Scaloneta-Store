@@ -1,3 +1,5 @@
+import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAr_ltK5V69WZkxN0wQN7GPtB3LSNVMPpk",
@@ -23,3 +25,7 @@ export const actionCodeSettingsForgotPassword = {
       ? 'http://localhost:3000/login'
       : 'https://nucba-zappi-1917.web.app',
 };
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);

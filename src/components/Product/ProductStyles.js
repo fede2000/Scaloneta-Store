@@ -4,6 +4,7 @@ import { GlobalContainer, GlobalSection } from "../../components/GlobalComponent
 export const ProductSection = styled(GlobalSection)`
     padding: 0;
     position: relative;
+    /* overflow: hidden; */
 
 `
 export const ProductContent = styled(GlobalContainer)`
@@ -74,6 +75,20 @@ export const IconShowFilter = styled.div`
 
 export const NavWrapper = styled.div`
     @media (max-width: 700px){
+        position: absolute;
+        top: -30rem;
+        right: 0;
+        width: 100%;
+        height: 280vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: all 0.1s;
+        z-index: 999;
+
+        transform: ${props =>
+        props.isOpenCat ? 'translateX(0)' : 'translateX(-200%)'};
+        
+    }
+    @media (max-width: 620px){
         position: absolute;
         top: -30rem;
         right: 0;

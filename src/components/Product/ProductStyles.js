@@ -73,7 +73,7 @@ export const IconShowFilter = styled.div`
 `
 
 export const NavWrapper = styled.div`
-    @media (max-width: 992px){
+    @media (max-width: 700px){
         position: absolute;
         top: -30rem;
         right: 0;

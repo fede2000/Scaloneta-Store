@@ -28,7 +28,7 @@ const Pagination = ({
 
   // GO to next page
   const paginateNext = () => {
-
+    setmaxPageNumberLimit(totalPages)
     console.log("next")
     console.log("next")
     console.log("limit")

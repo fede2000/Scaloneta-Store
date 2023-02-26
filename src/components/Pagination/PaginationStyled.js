@@ -13,7 +13,7 @@ export const PaginationContainer = styled.ul`
         display: none;
     }
     .active{
-        background-color: blue;
+        background-color: #75aadb;
         color: white;
     }
 `
@@ -35,7 +35,7 @@ export const PageItem = styled.li`
     }
 
     .active{
-        background-color: blue;
+        background-color: #75aadb;
         color: white;
     }
 `
@@ -47,6 +47,6 @@ export const TextPagination = styled.p`
         font-size: .8rem;
     }
     .page{
-        color: blue;
+        color: #75aadb;
     }
 `

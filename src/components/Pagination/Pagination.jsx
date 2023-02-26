@@ -58,8 +58,8 @@ const Pagination = ({
           currentPage === pageNumbers[0]
            ? 'hiddenItem' 
            : null}>
-
-          Prev
+            Ant
+          
         </PageItem>
 
         {pageNumbers.map((number) => {
@@ -82,11 +82,11 @@ const Pagination = ({
             : null
         }>
   
-            Next
+            Sig
         </PageItem>
 
         <TextPagination>
-            <b className='page'>{`pag ${currentPage}`}</b>
+            <b className='page'>{`${currentPage}`}</b>
             <span> de </span>
             <b>{`${Math.ceil(totalPages)}`}</b>
         </TextPagination>

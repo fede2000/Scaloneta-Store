@@ -30,7 +30,7 @@ export const Products = [
     id: 4,
     name: 'Camiseta Alternativa Mujer',
     imageURL: 'https://github.com/fede2000/Scaloneta-Store/blob/main/public/images/productos/camiseta-alternativa-mujer.jpg?raw=true',
-    desc: '¡ETERNA!',
+    desc: '100% Argentina. La Camiseta Adidas AFA Home Mujer 2022 diseñada para los hinchas, ofrece comodidad en todo momento gracias a su tejido suave con tecnología de absorción AEROREADY. Los detalles en la parte interior trasera del cuello están inspirados en la bandera nacional que los jugadores representan con tanto orgullo. Un producto hecho parcialmente con contenido reciclado generado a partir de desechos de producción, tales como recortes de tela, y desechos domésticos postconsumo, para evitar un mayor impacto ambiental al producir contenido virgen.',
     price: 25000,
     brand: "Adidas" ,
     category: 'Indumentaria Femenina',

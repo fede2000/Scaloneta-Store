@@ -92,7 +92,7 @@ const ProductDetails = () => {
             </ContentDetails>
           </DivContent>
             <ProductReviews>
-                <TitleReviews>Product Reviews</TitleReviews>
+                <TitleReviews>Opiniones del Producto</TitleReviews>
                 <div>
             {filteredReviews.length === 0 ? (
               <p>Todavía no hay opiniones para este producto.</p>

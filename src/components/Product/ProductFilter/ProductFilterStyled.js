@@ -23,7 +23,7 @@ export const FilterCategory = styled.div`
     button{
         display: block;
         text-align: left;
-        width: 80%;
+        width: 90%;
         height: 3rem;
         font-size: 1rem;
         border: none;
@@ -35,6 +35,9 @@ export const FilterCategory = styled.div`
         
         div{
             color: #000;
+        }
+        @media screen and (max-width: 730px){
+            font-size: .9rem;
         }
     }
     

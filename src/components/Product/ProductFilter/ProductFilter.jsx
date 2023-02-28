@@ -51,7 +51,7 @@ const ProductFilter = ({setCurrentPage,}) => {
   return (
     <FilterContainer>
         <TopFilter>  
-        <TitleFilters>Categories</TitleFilters>
+        <TitleFilters>Categorias</TitleFilters>
         <FaTimes size={30} color="#fff" onClick={context.toggleCategory}></FaTimes>
         </TopFilter>
         <FilterCategory>
@@ -66,9 +66,9 @@ const ProductFilter = ({setCurrentPage,}) => {
                 )
             })}
         </FilterCategory>
-        <TitleFilters>Brand</TitleFilters>
+        <TitleFilters>Marca</TitleFilters>
         <FilterBrand>
-        <select value={brand} onChange={(e) => {setBrand(e.target.value); setCurrentPage(1)}}>
+        <select value={brand} onChange={(e) => {setBrand(e.target.value); setCurrentPage(1)}} >
           {allBrands.map((brand, index) => {
             return (
               <option className='option' key={index} value={brand} onClick={context.toggleCategory}>
@@ -78,7 +78,7 @@ const ProductFilter = ({setCurrentPage,}) => {
           })}
         </select>
         </FilterBrand>
-        <TitleFilters>Price</TitleFilters>
+        <TitleFilters>Precio</TitleFilters>
         
         <FilterPrice>
             <p>{`$${price}`}</p>
@@ -91,7 +91,7 @@ const ProductFilter = ({setCurrentPage,}) => {
             </input>
         </FilterPrice>
         <br />
-        <ButtonClear onClick={clearFilters}>Clear filter</ButtonClear>
+        <ButtonClear onClick={clearFilters}>Limpiar Filtros</ButtonClear>
     </FilterContainer>
   )
 }

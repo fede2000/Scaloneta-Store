@@ -101,7 +101,7 @@ export const ButtonClear = styled.div`
     justify-content: center;
     align-items: center;
     transition: all 0.3s;
-    background-color: #75aadb;
+    background-color: #00aae4;
 
     :hover{
         transform: translateY(-2px);

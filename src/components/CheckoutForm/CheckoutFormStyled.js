@@ -11,6 +11,17 @@ export const CheckoutDateForm = styled.div`
   padding: 0 20px;
 
 }
+  @media (max-width:620px){
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px 20px;
+
+}
+  @media (max-width:420px){
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 30px;
+}
   `
 
 

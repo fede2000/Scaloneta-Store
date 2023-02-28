@@ -11,6 +11,16 @@ export const CheckoutSummaryContainer = styled.div`
 }
   @media (max-width:620px){
     margin-bottom: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+}
+  @media (max-width:420px){
+    margin-bottom: 1rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
 
 }
   

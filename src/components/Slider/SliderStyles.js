@@ -161,7 +161,7 @@ export const Content = styled.div`
           }
           100% {
             visibility: visible;
-            top: 3rem;
+            top: 2rem;
           }
         }
         }
@@ -183,7 +183,7 @@ export const Heading = styled.h2`
           font-size: 1.4rem;
         }
         @media (max-width:400px){
-          font-size: 1rem;
+          font-size: .9rem;
         }
 
 
@@ -203,18 +203,18 @@ export const Description = styled.p`
           font-size: .9rem;
         }
         @media (max-width:400px){
-          font-size: .8rem;
+          font-size: .7rem;
         }
 
 `
 
 export const Arrow = styled.span`
-    border: 2px solid blue;
+    border: 2px solid #75aadb;
     border-radius: 50%;
-    background: transparent;
+    background: #75aadb;
     color: blue;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
     cursor: pointer;
     position: absolute;
     display: flex;
@@ -222,11 +222,11 @@ export const Arrow = styled.span`
     align-items: center;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 0;
     right: ${props => props.right ? "1.5rem" : "none"};
     left: ${props => props.left ? "1.5rem" : "none"};
     :hover{
-        background-color: aquamarine;
+        
     }
 
 `
@@ -260,8 +260,8 @@ export const ButtonSlide = styled.span`
           font-size: .7rem;
         }
         @media (max-width:500px){
-          font-size: .7rem;
-          padding: .6rem 1rem;
+          font-size: .6rem;
+          padding: .5rem .8rem;
         }
 `
 

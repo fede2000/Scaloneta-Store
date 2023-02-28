@@ -1,24 +1,24 @@
-import { Categories } from '../../data';
+// import { Categories } from '../../data';
 
-// Importamos el select_category
-import { SELECT_CATEGORY } from './categories-actions';
+// // Importamos el select_category
+// import { SELECT_CATEGORY } from './categories-actions';
 
-const INITIAL_STATE = {
-  categories: Categories,
-  selectedCategory: null,
-};
+// const INITIAL_STATE = {
+//   categories: Categories,
+//   selectedCategory: null,
+// };
 
-const categoriesReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case SELECT_CATEGORY:
-      return {
-        ...state,
-        selectedCategory:
-          action.payload !== state.selectedCategory ? action.payload : null,
-      };
-    default:
-      return state;
-  }
-};
+// const categoriesReducer = (state = INITIAL_STATE, action) => {
+//   switch (action.type) {
+//     case SELECT_CATEGORY:
+//       return {
+//         ...state,
+//         selectedCategory:
+//           action.payload !== state.selectedCategory ? action.payload : null,
+//       };
+//     default:
+//       return state;
+//   }
+// };
 
-export default categoriesReducer;
+// export default categoriesReducer;

@@ -9,6 +9,7 @@ export const PaginationContainer = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     .hiddenItem{
         display: none;
     }

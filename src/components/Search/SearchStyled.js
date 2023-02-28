@@ -25,6 +25,7 @@ export const InputSearch = styled.input`
     border: 1px solid #000;
     border-radius: 15px;
     outline: none;
+    color: #000;
     /* background-color: #000; */
 `
 

@@ -70,7 +70,7 @@ const NavMenu = () => {
             <ShowOnLogin>
                 <NavItem onClick={context.toggleMenu}>
                     <NavLink to="/" onClick={logoutUser} >
-                        Logout
+                        Cerrar Sesión
                     </NavLink>
                 </NavItem>
             </ShowOnLogin>

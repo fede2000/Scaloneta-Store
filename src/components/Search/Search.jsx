@@ -10,7 +10,7 @@ const Search = ({ value, onChange }) => {
       </span>
         <InputSearch
         type="text"
-        placeholder="Search by name"
+        placeholder="Buscar"
         value={value}
         onChange={onChange}
       />

@@ -1,9 +1,8 @@
-import { Products, TotalProducts } from '../../data';
+import { Products } from '../../data/Products';
 import { GET_PRICE_RANGE } from './products-actions';
 
 const INITIAL_STATE = {
   products: Products,
-  totalProducts: TotalProducts,
   minPrice: null,
   maxPrice: null,
 };

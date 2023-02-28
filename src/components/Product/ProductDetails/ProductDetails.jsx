@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
-import { BackToProduct, ButtonCount, ButtonProduct, CartQuantity, ContentDetails, DetailsSection, DivContent, DivHead, ImgContainer, ProductBrand, ProductCount, ProductDescription, ProductDetailsContainer, ProductDetailsSection, ProductId, ProductName, ProductPrice, ProductReviews, ReviewsContent, TitleReviews, TitleSection } from './ProductDetailsStyled'
+import { ButtonCount, ButtonProduct, CartQuantity, ContentDetails, DetailsSection, DivContent, DivHead, ImgContainer, ProductBrand, ProductCount, ProductDescription, ProductDetailsContainer, ProductDetailsSection, ProductId, ProductName, ProductPrice, ProductReviews, ReviewsContent, TitleReviews, TitleSection } from './ProductDetailsStyled'
 import StarsRating from "react-star-rate";
 import { useDispatch, useSelector } from "react-redux";
-import useFetchCollection from "../../../customHooks/useFetchCollection";
 import * as cartActions from "../../../redux/cart/cart-actions"
-import useFetchDocument from '../../../customHooks/useFetchDocument';
 import { toast } from 'react-toastify';
 import Link from '../../../components/UtilsComponents/Link/Link';
 
@@ -13,9 +11,8 @@ const ProductDetails = () => {
     const { id } = useParams();
     const p = useSelector(state => state.products.products)
     const cartItems = useSelector(state => state.cart.cartItems);
-    const { data } = useFetchCollection("reviews");
+    const data = []
     const filteredReviews = data.filter((review) => review.productID === id);
-    // const cart = cartItems.find((cart) => cart.id === id);
     const dispatch = useDispatch();
     const idProduct = id - 1
     const product = p[idProduct]

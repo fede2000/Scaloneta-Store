@@ -32,9 +32,13 @@ export const CheckoutTitle = styled(GlobalTitleSection)`
 
 export const CheckoutParagraph = styled(GlobalParagraph)`
     font-size: 1.1rem;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
     margin-bottom: 0;
-    padding-left: 3.5rem;
+    /* padding-left: 3.5rem; */
+    @media (max-width:430px){
+        padding-left: 0;
+    }
+    
 `

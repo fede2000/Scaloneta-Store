@@ -37,8 +37,8 @@ useEffect(() => {
 
 return (
   <SliderSection>
-    {/* <Arrow left onClick={prevSlide}><AiOutlineArrowLeft className="left"></AiOutlineArrowLeft></Arrow> */}
-    {/* <Arrow right onClick={nextSlide}><AiOutlineArrowRight className="right"></AiOutlineArrowRight></Arrow> */}
+    <Arrow left onClick={prevSlide}><AiOutlineArrowLeft className="left"></AiOutlineArrowLeft></Arrow>
+    <Arrow right onClick={nextSlide}><AiOutlineArrowRight className="right"></AiOutlineArrowRight></Arrow>
     {sliderData.map((slide, index) => {
       const { image, heading, desc } = slide;
       return (

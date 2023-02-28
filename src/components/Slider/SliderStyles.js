@@ -70,7 +70,7 @@ export const Content = styled.div`
   left: 50%;
   opacity: 1;
   width: 50%;
-  gap: 20px;
+  gap: 10px;
   padding: 3rem;
   display: flex;
   justify-self: center;

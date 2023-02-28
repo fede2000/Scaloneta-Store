@@ -95,7 +95,7 @@ const ProductDetails = () => {
                 <TitleReviews>Product Reviews</TitleReviews>
                 <div>
             {filteredReviews.length === 0 ? (
-              <p>There are no reviews for this product yet.</p>
+              <p>Todavía no hay opiniones para este producto.</p>
             ) : (
               <>
                 {filteredReviews.map((item, index) => {

@@ -7,8 +7,11 @@ import { ButtonClear, FilterBrand, FilterCategory, FilterContainer, FilterPrice,
 import { useContext } from 'react';
 import { CategoryContext } from '../../../Context/Context';
 import { FaTimes} from "react-icons/fa";
+import { useCategories } from '../../../hook/useCategory';
 const ProductFilter = ({setCurrentPage,}) => {
     const context = useContext(CategoryContext)
+    const cates = useCategories();
+    console.log(cates)
     const [category, setCategory] = useState("All");
     const [brand, setBrand] = useState("All");
     const [price, setPrice] = useState(3000);

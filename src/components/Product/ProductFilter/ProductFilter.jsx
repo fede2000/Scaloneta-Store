@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import * as productsActions from "../../../redux/products/products-actions"
-
 import * as filterActions from "../../../redux/filter/filter-actions"
 import { ButtonClear, FilterBrand, FilterCategory, FilterContainer, FilterPrice, TitleFilters, TopFilter } from './ProductFilterStyled';
 import { useContext } from 'react';
 import { CategoryContext } from '../../../Context/Context';
 import { FaTimes} from "react-icons/fa";
-import { useCategories } from '../../../hook/useCategory';
+
+// import axios from 'axios';
 const ProductFilter = ({setCurrentPage,}) => {
+  console.log("productfilter")
+
+  const [data, setData] = useState([]);
     const context = useContext(CategoryContext)
-    const cates = useCategories();
-    console.log(cates)
     const [category, setCategory] = useState("All");
     const [brand, setBrand] = useState("All");
     const [price, setPrice] = useState(3000);
@@ -20,9 +20,35 @@ const ProductFilter = ({setCurrentPage,}) => {
     const maxPrice = useSelector(state => state.products.maxPrice);
 
     const dispatch = useDispatch();
+    useEffect(() => {
+      // Define the API URL you want to fetch data from
+      const apiUrl = "https://api-scaloneta-store.onrender.com/api/v1/category";
+  
+      // Fetch data from the API
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setData(data.data.result);
+          console.log(data)
+        })
+        .catch((error) => {
+        });
+    }, []);
+
+    
+
+
+
+
     const allCategories = [
         "All",
-        ...new Set(products.map((product) => product.category)),
+
+        ...new Set(data.map((category) => category.category)),
 
       ];
       const allBrands = [

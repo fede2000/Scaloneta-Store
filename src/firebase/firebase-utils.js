@@ -33,6 +33,7 @@ export const firestore = getFirestore(app);
 
 export const createUserProfileDocument = async userAuth => {
   if (!userAuth || !userAuth.emailVerified) return;
+  console.log("createuserDocument emailverified", userAuth.emailVerified)
   const userRef = doc(firestore, `users/${userAuth.uid}`);
   const snapShot = await getDoc(userRef);
 

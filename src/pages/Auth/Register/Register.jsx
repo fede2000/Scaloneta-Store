@@ -37,6 +37,7 @@ const navigate = useNavigate()
             // const { user } = await signInUser(values.email, values.password);
             // createUserProfileDocument(user);
             const { user } = await registerWithEmailAndPassword(values.email, values.password, values.name);
+            toast.success("Registro exitoso");
             navigate("/login");
           } catch (error) {
             if (error.code === 'auth/email-already-in-use') {

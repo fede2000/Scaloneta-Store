@@ -79,14 +79,6 @@ const Login = () => {
                 ¿Olvidaste la contraseña? Reestablecela
               </LoginPassword>
             </Link>
-            <p>O podes ingresar con</p>
-            <LoginButtonGoogle type='button' onClick={signInWithGoogle}>
-            <img
-              src='https://res.cloudinary.com/dcatzxqqf/image/upload/v1656648432/coding/NucbaZappi/Assets/google-icon_jgdcr1.png'
-              alt='Google logo'
-            />
-            Google
-            </LoginButtonGoogle>
             <Link to='/register'>
               <LoginEmail>
                 ¿No tenes cuenta? Create una

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -18,6 +18,11 @@ import Loader from '../Loader/Loader';
 const CheckoutForm = ({ cartItems, price, shippingCost }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    // Initialize form data here
+    name: '',
+    tele: '',
+  });
 
   return (
     <CheckoutDateForm>

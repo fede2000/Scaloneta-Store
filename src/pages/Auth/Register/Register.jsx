@@ -1,120 +1,104 @@
 import { Formik } from 'formik'
-import React, { useState } from 'react'
-import { registerInitialValues, registerValidationSchema } from '../../../formik';
+import React, { useState }  from 'react'
+import { Form, LoginButtonGoogle, LoginContainer, LoginEmail, LoginImgContainer, LoginPassword, LoginSection } from './LoginStyled'
+import { loginInitialValues, loginValidationSchema } from '../../../formik';
 import {
-  createUser,
-  signInWithGoogle
+  signInUser, auth,
+  createUserProfileDocument,
 } from '../../../firebase/firebase-utils';
-
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { toast } from 'react-toastify';
 import LoginInput from "../LoginInput/LoginInput"
 import Submit from "../Submit/Submit"
-import { Link, useNavigate } from 'react-router-dom';
-import { RegisterButtonGoogle, RegisterContainer, RegisterEmail, RegisterForm, RegisterImgContainer, RegisterSection } from './RegisterStyles';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate  } from 'react-router-dom';
+import Loader from '../../../components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import * as userActions from '../../../redux/user/user-actions';
+// import { selectPreviousURL } from "../../redux/slice/cartSlice";
 
-
-
-
-const Register = () => {
-  const [submitting, setSubmitting] = useState(true)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
-  const [responseMessage, setResponseMessage] = useState('');
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+const Login = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const redirectUser = () => {
+    navigate("/");
   };
-  const header = new Headers({ "Access-Control-Allow-Origin": "*" });
-  const handleSubmit = async (values) => {
-    // You can send the POST request here using fetch or Axios
-    try {
-      console.log("handlesubmit")
-      console.log("values handle 1",values)
-      const response = await fetch('https://api-scaloneta-store.onrender.com/api/v1/auth/register', {
-        method: 'POST',
-        headers: {
+  const dispatch = useDispatch();
 
-          'Content-Type': 'application/json',
-        },
-        mode: "no-cors",
-        body: JSON.stringify(
-          values
-        )
-      }
-      );
-      console.log("values handle",values)
-      let json = response
-      console.log("json response",json)
-
-
-      if (response.ok) {
-        // Registration successful, you can handle success here
-        console.log('Registration successful');
-      } else {
-        // Registration failed, you can handle errors here
-        
-        console.error('Registration failed',response.error);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
-
-const navigate = useNavigate()
+    // Login with Goooglr
+    const provider = new GoogleAuthProvider();
+    const signInWithGoogle = () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          dispatch(userActions.toggleIsLoggedIn())
+          toast.success("Login Successfully");
+          redirectUser();
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        });
+    };
   return (
     <>
-    <RegisterSection>
-      
-      <RegisterContainer>
-
-        <Formik initialValues={registerInitialValues}
-        validationSchema={registerValidationSchema}
-        onSubmit={handleSubmit}
-        // onSubmit={async (values,actions) => {
-          
-        //   try {
-        //     console.log("values",values)
-        //     handleSubmit(values)
-        //     // navigate("/login");
-        //   } catch (error) {
-        //     if (error.code === 'auth/email-already-in-use') {
-        //       toast.error("Mail en uso")
-        //       alert('Mail en uso');
-              
-        //     }
-        //   }
-        //   // actions.resetForm();
-        // }}
-        >
-          <RegisterForm>
-          <h1>Register</h1>
-            <LoginInput name='name' type='text' id="name" value={formData.name} onChange={handleChange} placeholder='Name'></LoginInput>
-            <LoginInput name='email' type='text' id= "email" value={formData.email} onChange={handleChange} placeholder='Email'></LoginInput>
-            <LoginInput name='password' type='password' id="password" value={formData.password} onChange={handleChange} placeholder='Password' />
-            
-            <Link to='/login'>
-              <RegisterEmail>
-                ¿Ya tenes cuenta? Inicia Sesión
-              </RegisterEmail>
+    {isLoading && <Loader />}
+    <LoginSection>
+      <LoginContainer>
+        <LoginImgContainer>
+          <img src="images/login.svg" alt="" />
+        </LoginImgContainer>
+        <Formik initialValues={loginInitialValues}
+        validationSchema={loginValidationSchema}
+        onSubmit={async values => {
+          setIsLoading(true);
+          try{
+            const { user } = await signInUser(values.email, values.password);
+            createUserProfileDocument(user);
+            dispatch(userActions.toggleIsLoggedIn())
+            setIsLoading(false);
+            redirectUser();
+            toast.success("Iniciaste Sesión");
+          } catch( error ) {
+            if (error.code === 'auth/wrong-password'){
+              setIsLoading(false);
+              toast.error("Contraseña incorrecta");
+            }
+            if (error.code === 'auth/user-not-found'){
+              setIsLoading(false);
+              toast.error("usuario no encontrado");
+            }
+          }
+        }}>
+          <Form>
+          <h1>Login</h1>
+            <LoginInput name='email' type='text' placeholder='Email'></LoginInput>
+            <LoginInput name='password' type='password' placeholder='Password' />
+            <Link to='/reset'>
+              <LoginPassword>
+                ¿Olvidaste la contraseña? Reestablecela
+              </LoginPassword>
             </Link>
-            <Submit type="submit">Registrate</Submit>
-          </RegisterForm>
+            <p>O podes ingresar con</p>
+            <LoginButtonGoogle type='button' onClick={signInWithGoogle}>
+            <img
+              src='https://res.cloudinary.com/dcatzxqqf/image/upload/v1656648432/coding/NucbaZappi/Assets/google-icon_jgdcr1.png'
+              alt='Google logo'
+            />
+            Google
+            </LoginButtonGoogle>
+            <Link to='/register'>
+              <LoginEmail>
+                ¿No tenes cuenta? Create una
+              </LoginEmail>
+            </Link>
+            <Submit>Iniciar Sesión</Submit>
+          </Form>
         </Formik>
-        <RegisterImgContainer>
-          <img src="images/register.svg" alt="" />
-        </RegisterImgContainer>
-      </RegisterContainer>
-    </RegisterSection>
-    <ToastContainer></ToastContainer>
+      </LoginContainer>
+    </LoginSection>
     </>
   )
 }
 
-export default Register
+export default Login

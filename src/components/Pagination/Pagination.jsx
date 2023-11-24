@@ -11,11 +11,6 @@ const Pagination = ({
     const pageNumbers = [];
   const totalPages = Math.ceil(totalProducts / productsPerPage)
 
-  console.log("totalPages")
-  console.log(totalPages)
-
-  console.log("porpagina")
-  console.log(productsPerPage)
   // Limit the page Numbers shown
   const [pageNumberLimit] = useState(totalPages);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(totalPages);

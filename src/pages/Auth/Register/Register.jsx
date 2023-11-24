@@ -3,6 +3,9 @@ import React from 'react'
 import { registerInitialValues, registerValidationSchema } from '../../../formik';
 import {
   createUser,
+  createUserProfileDocument,
+  registerWithEmailAndPassword,
+  signInUser,
   signInWithGoogle
 } from '../../../firebase/firebase-utils';
 
@@ -30,8 +33,10 @@ const navigate = useNavigate()
         onSubmit={async (values,actions) => {
           
           try {
-            await createUser(values.email, values.password, values.name);
-            
+            // await createUser(values.email, values.password, values.name);
+            // const { user } = await signInUser(values.email, values.password);
+            // createUserProfileDocument(user);
+            const { user } = await registerWithEmailAndPassword(values.email, values.password, values.name);
             navigate("/login");
           } catch (error) {
             if (error.code === 'auth/email-already-in-use') {

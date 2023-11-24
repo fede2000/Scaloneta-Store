@@ -54,10 +54,10 @@ const Login = () => {
           setIsLoading(true);
           try{
             const { user } = await signInUser(values.email, values.password);
-            createUserProfileDocument(user);
             dispatch(userActions.toggleIsLoggedIn())
             setIsLoading(false);
             redirectUser();
+            window.location.reload();
             toast.success("Iniciaste Sesión");
           } catch( error ) {
             if (error.code === 'auth/wrong-password'){

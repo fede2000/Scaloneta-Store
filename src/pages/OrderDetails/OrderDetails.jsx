@@ -38,9 +38,6 @@ const OrderDetails= () => {
 
     setVisitedOrder(orders?.find(order => order.id === orderId));
   }, [orderId, currentUser?.id, orders, dispatch]);
-  console.log("visitedorder")
-  console.log(visitedOrder)
-
   return (
     <OrderDetailsSection>
       <OrderDetailsContainer>

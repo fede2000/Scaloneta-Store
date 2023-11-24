@@ -32,8 +32,7 @@ const app = initializeApp(firebaseConfig);
 export const firestore = getFirestore(app);
 
 export const createUserProfileDocument = async userAuth => {
-  if (!userAuth || !userAuth.emailVerified) return;
-  console.log("createuserDocument emailverified", userAuth.emailVerified)
+  if (!userAuth) return;
   const userRef = doc(firestore, `users/${userAuth.uid}`);
   const snapShot = await getDoc(userRef);
 
@@ -59,6 +58,20 @@ export const auth = getAuth();
 auth.useDeviceLanguage();
 
 // Create User
+
+export const registerWithEmailAndPassword = async (email, password, displayName) => {
+  try {
+
+    const { user } = await createUserWithEmailAndPassword(auth,email, password)
+    localStorage.setItem('username', displayName);
+    await createUserProfileDocument(user,displayName);
+    return user;
+  } catch (error) {
+    console.error('Error registering user', error.message);
+    return null;
+  }
+};
+
 export const createUser = (email, password, displayName) =>
   createUserWithEmailAndPassword(auth, email, password).then(userCredential =>
     sendEmailVerification(
@@ -67,7 +80,6 @@ export const createUser = (email, password, displayName) =>
     ).then(() => {
       toast.success(`Mensaje de verificación enviado al mail ${email}`);
       localStorage.setItem('username', displayName);
-      console.log(userCredential)
     })
   );
 

@@ -8,8 +8,6 @@ import { FaTimes} from "react-icons/fa";
 
 // import axios from 'axios';
 const ProductFilter = ({setCurrentPage,}) => {
-  console.log("productfilter")
-
   const [data, setData] = useState([]);
     const context = useContext(CategoryContext)
     const [category, setCategory] = useState("All");
@@ -34,7 +32,6 @@ const ProductFilter = ({setCurrentPage,}) => {
         })
         .then((data) => {
           setData(data.data.result);
-          console.log(data)
         })
         .catch((error) => {
         });
